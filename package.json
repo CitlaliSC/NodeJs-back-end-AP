@@ -1,0 +1,41 @@
+{
+  "name": "nodejs-back-end-ap",
+  "version": "1.0.0",
+  "description": "NodeJs backend API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "cross-env NODE_ENV=dev nodemon src/index.js",
+    "start:prod": "cross-env NODE_ENV=production node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CitlaliSC/NodeJs-back-end-AP.git"
+  },
+  "keywords": [
+    "Express",
+    "NodeJs",
+    "MySQL",
+    "API",
+    "Web"
+  ],
+  "author": "CitlaliSC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CitlaliSC/NodeJs-back-end-AP/issues"
+  },
+  "homepage": "https://github.com/CitlaliSC/NodeJs-back-end-AP#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "ip": "^2.0.1",
+    "mysql": "^2.18.1",
+    "pino": "^9.11.0",
+    "pino-pretty": "^13.1.1"
+  },
+  "devDependencies": {
+    "cross-env": "^10.0.0",
+    "nodemon": "^3.1.10"
+  }
+}
