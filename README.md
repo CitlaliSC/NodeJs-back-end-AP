@@ -33,5 +33,5 @@ npm run start:dev
 For testing docker and mysql:
 
 ```bash
-docker exec -it mysqlcontainer mysql -uroot -ppass123
+docker exec -it nodejs-back-end-ap_mysqldb_1 mysql -uroot -ppass123
 ```
