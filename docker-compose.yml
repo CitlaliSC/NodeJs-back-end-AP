@@ -1,15 +1,14 @@
 services:
   mysqldb:
     image: mysql:8.0.36
-    ports:
-      - "3307:3306"
+    container_name: mysqlcontainer
     environment:
       MYSQL_ROOT_PASSWORD: pass123
       MYSQL_DATABASE: patientsdb
       MYSQL_USER: admin
       MYSQL_PASSWORD: pass123
     ports:
-      - "3306:3306"
+      - "3307:3306"   # host:container → host usa 3307, contenedor usa 3306
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:

@@ -22,6 +22,19 @@ npm i
 - DB_NAME=patientsdb
 - DB_CONNECTION_LIMIT=20
 
+4. Create docker container
+```bash
+docker-compose up -d 
+```
+
+---
+
+For testing docker and mysql:
+
+```bash
+docker exec -it mysqlcontainer mysql -uroot -ppass123
+```
+
 ---
 
 To run in dev:
@@ -30,8 +43,11 @@ To run in dev:
 npm run start:dev
 ```
 
-For testing docker and mysql:
-
-```bash
-docker exec -it nodejs-back-end-ap_mysqldb_1 mysql -uroot -ppass123
-```
+> **Note:** If you are running this on Windows, you may need to adapt the following lines in your `package.json` scripts, as setting environment variables differs from Linux:
+> 
+> ```json
+> "scripts": {
+>   "start:dev": "NODE_ENV=dev nodemon src/index.js",
+>   "start:prod": "NODE_ENV=production node src/index.js"
+> }
+> ```
