@@ -7,10 +7,36 @@ services:
       MYSQL_DATABASE: patientsdb
       MYSQL_USER: admin
       MYSQL_PASSWORD: pass123
+      SERVICE_TAGS: prod
+      SERVICE_NAME: mysqldb
     ports:
-      - "3307:3306"   # host:container → host usa 3307, contenedor usa 3306
+      - "3307:3306"
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - $HOME/database:/var/lib/mysql
+    networks:
+      - internalnet
+  
+  nodeapp:
+    container_name: nodeappcontainer
+    build: .
+    image: nodeapp:v1
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    environment:
+      DB_HOST: mysqldb
+      DB_PORT: 3306
+      DB_USER: 'admin'
+      DB_PASSWORD: 'pass123'
+      DB_NAME: patientsdb
+      DB_CONNECTION_LIMIT: 20
+      SERVICE_TAGS: prod
+      SERVICE_NAME: nodeappservice
+      SERVER_PORT: 3000
+    depends_on:
+      - mysqldb
     networks:
       - internalnet
 

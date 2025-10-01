@@ -21,6 +21,7 @@ npm i
 - DB_PASSWORD=pass123
 - DB_NAME=patientsdb
 - DB_CONNECTION_LIMIT=20
+- SERVER_PORT= 5000
 
 4. Create docker container
 ```bash
